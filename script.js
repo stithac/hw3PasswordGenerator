@@ -7,7 +7,6 @@ var lowerCaseArray = "abcdefghijklmnopqrstuvwxyz".split("");
 var upperCaseArray = lowerCaseArray.toString().toUpperCase().split(",");
 var specialCharArray = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~".split("");
 
-
 //Generates and validates password based on pw criteria stored from user input
 function generatePassword(){
   console.log("---Starting Password Generator application---");
