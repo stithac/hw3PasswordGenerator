@@ -20,10 +20,10 @@ function generatePassword(){
     numChars = prompt("How many characters do you want in your password? \n\nChoose a number from 8 to 128. ");
   }
    //Additional variables from user inputs
-  var wantSpecialChar = confirm("Would you like special characters in your password?");
-  var wantUpperCase = confirm("Would you like uppercase letters in your password?");
-  var wantLowerCase = confirm("Would you like lowercase letters in your password?");
-  var wantNumber = confirm("Would you like numbers in your password?");
+  var wantSpecialChar = confirm("Would you like special characters in your password?\n\n OK = Yes; Cancel = No");
+  var wantUpperCase = confirm("Would you like uppercase letters in your password?\n\n OK = Yes; Cancel = No");
+  var wantLowerCase = confirm("Would you like lowercase letters in your password?\n\n OK = Yes; Cancel = No");
+  var wantNumber = confirm("Would you like numbers in your password?\n\n OK = Yes; Cancel = No");
 
   //Write user input values to the console log
   console.log("User inputs: ");
