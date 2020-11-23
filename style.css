@@ -114,14 +114,27 @@ button[disabled] {
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 85px;
-  font-size: 36px;
+  font-size: 24px;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
   border: 2px dashed #030926;
   border-radius: 6px;
   resize: none;
-  overflow: hidden;
+  overflow-y: scroll;
+}
+
+footer{
+  background-color:#030926;
+  color: #e8e8e8;
+  padding-top: 5px;
+  text-align: center;
+  margin-top:10px;
+  font-size:12px;
+}
+
+footer p{
+  margin:0;
 }
 
 @media (max-width: 690px) {
@@ -135,6 +148,7 @@ button[disabled] {
     font-size: 1rem;
   }
 }
+
 
 @media (max-width: 500px) {
   .btn {
