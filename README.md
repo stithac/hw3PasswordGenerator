@@ -2,6 +2,7 @@
 #### By Ashley Stith
 ## Description
 This Application runs in the browser and allows a user to request a randomly generated password.  The application has validation checks to ensure the password meets the users requirements.
+Link to application: https://stithac.github.io/hw3PasswordGenerator/
 ## Features
 * Application prompts user for the following password criteria:
     * Number of characters
