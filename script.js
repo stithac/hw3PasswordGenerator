@@ -33,8 +33,6 @@ function generatePassword(){
   console.log("User wants number? " + wantNumber);
   console.log("*********************************");
 
-  
-
  //Create joinedArray based on user inputs
   var joinedArray = [];
 
@@ -52,35 +50,42 @@ function generatePassword(){
   }
   console.log(joinedArray);
 
-    //Generate random passwords until all pw criteria is satisfied
-    do {
-      console.log("\n");
-      console.log("---Generating password---");
-      console.log("\n");
+  //Validate at least one option was chosen
+  if(joinedArray === undefined || joinedArray.length == 0){
+    alert("Your password must contain at least one type of character!");
+    console.log("");
+    generatePassword();
+    return;
+  }
+  //Generate random passwords until all pw criteria is satisfied
+  do {
+    console.log("\n");
+    console.log("---Generating password---");
+    console.log("\n");
 
-      var pwArray = []; //Empty array to house generated password
+    var pwArray = []; //Empty array to house generated password
 
-      //Loops through the entire joinedArray [numChars] number of times and adds a random value each time to the pwArray
-      for(i=0; i<numChars; i++){
-        var rand = Math.floor(Math.random() * joinedArray.length);
-        pwArray.push(joinedArray[rand]);
-      }
+    //Loops through the entire joinedArray [numChars] number of times and adds a random value each time to the pwArray
+    for(i=0; i<numChars; i++){
+      var rand = Math.floor(Math.random() * joinedArray.length);
+      pwArray.push(joinedArray[rand]);
+    }
 
-      //PW criteria validation. Some method is used to check if there are any characters from the pwArray in each of the other arrays: specialCharArray, upperCaseArray, lowerCaseArray, numberArray
-      var isSpecialCharThere = pwArray.some((val) => specialCharArray.indexOf(val) !== -1);
-      var isUpperCaseThere = pwArray.some((val) => upperCaseArray.indexOf(val) !== -1);
-      var isLowerCaseThere = pwArray.some((val) => lowerCaseArray.indexOf(val) !== -1);
-      var isNumberThere = pwArray.some((val) => numberArray.indexOf(val) !== -1);
+    //PW criteria validation. Some method is used to check if there are any characters from the pwArray in each of the other arrays: specialCharArray, upperCaseArray, lowerCaseArray, numberArray
+    var isSpecialCharThere = pwArray.some((val) => specialCharArray.indexOf(val) !== -1);
+    var isUpperCaseThere = pwArray.some((val) => upperCaseArray.indexOf(val) !== -1);
+    var isLowerCaseThere = pwArray.some((val) => lowerCaseArray.indexOf(val) !== -1);
+    var isNumberThere = pwArray.some((val) => numberArray.indexOf(val) !== -1);
 
-      //Prints out the pwArray and PW criteria validation results
-      console.log("pwArray: " + pwArray);
-      console.log("\n");
-      console.log("Password criteria: ");
-      console.log("Password contains special character? " + isSpecialCharThere);
-      console.log("Password contains uppercase letter? " + isUpperCaseThere);
-      console.log("Password contains lowercase letter? " + isLowerCaseThere);
-      console.log("Password contains number? " + isNumberThere);
-      console.log("__________________________________");
+    //Prints out the pwArray and PW criteria validation results
+    console.log("pwArray: " + pwArray);
+    console.log("\n");
+    console.log("Password criteria: ");
+    console.log("Password contains special character? " + isSpecialCharThere);
+    console.log("Password contains uppercase letter? " + isUpperCaseThere);
+    console.log("Password contains lowercase letter? " + isLowerCaseThere);
+    console.log("Password contains number? " + isNumberThere);
+    console.log("__________________________________");
 
     }// End of "do" code block of do/while loop. While condition is below
     while(isSpecialCharThere === false && wantSpecialChar === true || isUpperCaseThere === false && wantUpperCase === true || isLowerCaseThere === false && wantLowerCase === true || isNumberThere === false && wantNumber === true); //While statement checks to see if any of the pw criteria is not included in the pwArray
