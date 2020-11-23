@@ -14,7 +14,8 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  /* background-color: #f9fbfd; */
+  background-image: url("./assets/pw-background2.jpg");
 }
 
 .wrapper {
@@ -23,25 +24,26 @@ body {
   padding-right: 20px;
 }
 
-header {
-  text-align: center;
-  padding: 20px;
-  padding-top: 0px;
-  color: hsl(206, 17%, 28%);
-}
-
 .card {
-  background-color: hsl(0, 0%, 100%);
+  /* background-color: hsl(0, 0%, 100%); */
+  background-color:#030926;
+  /* border-color: #01D3F1; */
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
+  color: #BCF0FB;
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  opacity: .95;
 }
-
+.card-header {
+  text-align: center;
+  padding: 20px;
+  padding-top: 0px;
+  /* color: hsl(206, 17%, 28%); */
+}
 .card-header::after {
   content: " ";
   display: block;
@@ -74,11 +76,12 @@ header {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: #01D3F1;
+  /* background-color: #028BC8; */
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
-  color: hsl(0, 0%, 100%);
+  color: #030926;
   display: inline-block;
   font-size: 22px;
   line-height: 22px;
@@ -101,6 +104,9 @@ button[disabled] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  /* background-color:#05689A; */
+  background-color: #e8e8e8;
+  color:#030926;
   border: none;
   display: block;
   width: 100%;
@@ -108,11 +114,11 @@ button[disabled] {
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 85px;
-  font-size: 1.2rem;
+  font-size: 36px;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
+  border: 2px dashed #030926;
   border-radius: 6px;
   resize: none;
   overflow: hidden;
