@@ -12,6 +12,7 @@ function generatePassword(){
   console.log("---Starting Password Generator application---");
   console.log("\n");
 
+
   var numChars = 0; //Initialize numChars variable
 
   //Prompt user to imput num of characters until their input is between 8 and 128
@@ -50,13 +51,6 @@ function generatePassword(){
   }
   console.log(joinedArray);
 
-  //Validate at least one option was chosen
-  if(joinedArray === undefined || joinedArray.length == 0){
-    alert("Your password must contain at least one type of character!");
-    console.log("");
-    generatePassword();
-    return;
-  }
   //Generate random passwords until all pw criteria is satisfied
   do {
     console.log("\n");
@@ -91,8 +85,6 @@ function generatePassword(){
     while(isSpecialCharThere === false && wantSpecialChar === true || isUpperCaseThere === false && wantUpperCase === true || isLowerCaseThere === false && wantLowerCase === true || isNumberThere === false && wantNumber === true); //While statement checks to see if any of the pw criteria is not included in the pwArray
 
   var genPassword = pwArray.join(""); //Removes commas from pwArray and sets assigns to genPassword variable
-  console.log("Passed all validation!!!");
-  console.log("GENERATED PASSWORD: " + genPassword);
 
   return genPassword; //returns generated password with no commas
 }//End of GeneratePassword() function
@@ -100,6 +92,13 @@ function generatePassword(){
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+  while(password == ""){
+    alert("Your password must contain at least one type of character!");
+    password = generatePassword();
+  }
+  console.log("Passed all validation!");
+  console.log("Generated password: " + password);
+
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
