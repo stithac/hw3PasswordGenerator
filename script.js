@@ -15,7 +15,7 @@ function generatePassword(){
   var numChars = 0; //Initialize numChars variable
 
   //Prompt user to imput num of characters until their input is between 8 and 128
-  while(numChars < 8 || numChars > 128){
+  while(numChars < 8 || numChars > 128 || isNaN(numChars)){
     numChars = prompt("How many characters do you want in your password? \n\nChoose a number from 8 to 128. ");
   }
    //Additional variables from user inputs
@@ -32,6 +32,8 @@ function generatePassword(){
   console.log("User wants lowercase letter? " + wantLowerCase);
   console.log("User wants number? " + wantNumber);
   console.log("*********************************");
+
+  
 
  //Create joinedArray based on user inputs
   var joinedArray = [];
@@ -79,10 +81,12 @@ function generatePassword(){
       console.log("Password contains lowercase letter? " + isLowerCaseThere);
       console.log("Password contains number? " + isNumberThere);
       console.log("__________________________________");
+
     }// End of "do" code block of do/while loop. While condition is below
     while(isSpecialCharThere === false && wantSpecialChar === true || isUpperCaseThere === false && wantUpperCase === true || isLowerCaseThere === false && wantLowerCase === true || isNumberThere === false && wantNumber === true); //While statement checks to see if any of the pw criteria is not included in the pwArray
 
   var genPassword = pwArray.join(""); //Removes commas from pwArray and sets assigns to genPassword variable
+  console.log("Passed all validation!!!");
   console.log("GENERATED PASSWORD: " + genPassword);
 
   return genPassword; //returns generated password with no commas
