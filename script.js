@@ -16,7 +16,7 @@ function generatePassword(){
 
   //Prompt user to imput num of characters until their input is between 8 and 128
   while(numChars < 8 || numChars > 128 || isNaN(numChars)){
-    numChars = prompt("How many characters do you want in your password? \n\nChoose a number from 8 to 128. ");
+    numChars = prompt("How many characters do you want in your password? \n\nType a number from 8 to 128. ");
   }
   //Additional variables from user inputs
   var wantSpecialChar = confirm("1- Would you like SPECIAL CHARACTERS in your password?\n\n OK = Yes; Cancel = No");
