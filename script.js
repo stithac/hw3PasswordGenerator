@@ -12,14 +12,13 @@ function generatePassword(){
   console.log("---Starting Password Generator application---");
   console.log("\n");
 
-
   var numChars = 0; //Initialize numChars variable
 
   //Prompt user to imput num of characters until their input is between 8 and 128
   while(numChars < 8 || numChars > 128 || isNaN(numChars)){
     numChars = prompt("How many characters do you want in your password? \n\nChoose a number from 8 to 128. ");
   }
-   //Additional variables from user inputs
+  //Additional variables from user inputs
   var wantSpecialChar = confirm("Would you like special characters in your password?\n\n OK = Yes; Cancel = No");
   var wantUpperCase = confirm("Would you like uppercase letters in your password?\n\n OK = Yes; Cancel = No");
   var wantLowerCase = confirm("Would you like lowercase letters in your password?\n\n OK = Yes; Cancel = No");
@@ -81,8 +80,8 @@ function generatePassword(){
     console.log("Password contains number? " + isNumberThere);
     console.log("__________________________________");
 
-    }// End of "do" code block of do/while loop. While condition is below
-    while(isSpecialCharThere === false && wantSpecialChar === true || isUpperCaseThere === false && wantUpperCase === true || isLowerCaseThere === false && wantLowerCase === true || isNumberThere === false && wantNumber === true); //While statement checks to see if any of the pw criteria is not included in the pwArray
+  }// End of "do" code block of do/while loop. While condition is below
+  while(isSpecialCharThere === false && wantSpecialChar === true || isUpperCaseThere === false && wantUpperCase === true || isLowerCaseThere === false && wantLowerCase === true || isNumberThere === false && wantNumber === true); //While statement checks to see if any of the pw criteria is not included in the pwArray
 
   var genPassword = pwArray.join(""); //Removes commas from pwArray and sets assigns to genPassword variable
 
@@ -92,15 +91,17 @@ function generatePassword(){
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+  //If password is empty (no char type selected by user, the generatePassword() function is invoked again)
   while(password == ""){
     alert("Your password must contain at least one type of character!");
     password = generatePassword();
   }
+
   console.log("Passed all validation!");
   console.log("Generated password: " + password);
 
   var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+  passwordText.value = password; //Password is set to password textarea and displayed on the screen
 }
 
 // Add event listener to generate button
