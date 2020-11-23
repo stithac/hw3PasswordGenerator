@@ -104,7 +104,6 @@ button[disabled] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  /* background-color:#05689A; */
   background-color: #e8e8e8;
   color:#030926;
   border: none;
@@ -148,7 +147,6 @@ footer p{
     font-size: 1rem;
   }
 }
-
 
 @media (max-width: 500px) {
   .btn {
