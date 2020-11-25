@@ -1,3 +1,6 @@
+/*jshint esversion: 6 */
+/*jshint loopfunc:true */
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -12,7 +15,13 @@ function generatePassword(){
   console.log("---Starting Password Generator application---");
   console.log("\n");
 
-  var numChars = 0; //Initialize numChars variable
+  //Initialize variables
+  var numChars = 0;
+  var isSpecialCharThere = false;
+  var isUpperCaseThere = false;
+  var isLowerCaseThere = false;
+  var isNumberThere = false;
+  var pwArray = []; //Empty array to house generated password
 
   //Prompt user to imput num of characters until their input is between 8 and 128
   while(numChars < 8 || numChars > 128 || isNaN(numChars)){
@@ -36,16 +45,16 @@ function generatePassword(){
  //Create joinedArray based on user inputs
   var joinedArray = [];
 
-  if(wantSpecialChar == true){
+  if(wantSpecialChar === true){
     joinedArray = joinedArray.concat(specialCharArray);
   }
-  if(wantUpperCase == true){
+  if(wantUpperCase === true){
     joinedArray = joinedArray.concat(upperCaseArray);
   }
-  if(wantLowerCase == true){
+  if(wantLowerCase === true){
     joinedArray = joinedArray.concat(lowerCaseArray);
   }
-  if(wantNumber == true){
+  if(wantNumber === true){
     joinedArray = joinedArray.concat(numberArray);
   }
   console.log(joinedArray);
@@ -56,19 +65,17 @@ function generatePassword(){
     console.log("---Generating password---");
     console.log("\n");
 
-    var pwArray = []; //Empty array to house generated password
-
     //Loops through the entire joinedArray [numChars] number of times and adds a random value each time to the pwArray
-    for(i=0; i<numChars; i++){
+    for(var i=0; i<numChars; i++){
       var rand = Math.floor(Math.random() * joinedArray.length);
       pwArray.push(joinedArray[rand]);
     }
 
     //PW criteria validation. Some method is used to check if there are any characters from the pwArray in each of the other arrays: specialCharArray, upperCaseArray, lowerCaseArray, numberArray
-    var isSpecialCharThere = pwArray.some((val) => specialCharArray.indexOf(val) !== -1);
-    var isUpperCaseThere = pwArray.some((val) => upperCaseArray.indexOf(val) !== -1);
-    var isLowerCaseThere = pwArray.some((val) => lowerCaseArray.indexOf(val) !== -1);
-    var isNumberThere = pwArray.some((val) => numberArray.indexOf(val) !== -1);
+    isSpecialCharThere = pwArray.some((val) => specialCharArray.indexOf(val) !== -1);
+    isUpperCaseThere = pwArray.some((val) => upperCaseArray.indexOf(val) !== -1);
+    isLowerCaseThere = pwArray.some((val) => lowerCaseArray.indexOf(val) !== -1);
+    isNumberThere = pwArray.some((val) => numberArray.indexOf(val) !== -1);
 
     //Prints out the pwArray and PW criteria validation results
     console.log("pwArray: " + pwArray);
@@ -92,7 +99,7 @@ function generatePassword(){
 function writePassword() {
   var password = generatePassword();
   //If password is empty (no char type selected by user, the generatePassword() function is invoked again)
-  while(password == ""){
+  while(password === ""){
     alert("Your password must contain at least one type of character!");
     password = generatePassword();
   }
