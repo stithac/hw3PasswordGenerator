@@ -14,14 +14,8 @@ var specialCharArray = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~".split("");
 function generatePassword(){
   console.log("---Starting Password Generator application---");
   console.log("\n");
-
-  //Initialize variables
-  var numChars = 0;
-  var isSpecialCharThere = false;
-  var isUpperCaseThere = false;
-  var isLowerCaseThere = false;
-  var isNumberThere = false;
-  var pwArray = []; //Empty array to house generated password
+ 
+  var numChars = 0; //Initialize numChars variable
 
   //Prompt user to imput num of characters until their input is between 8 and 128
   while(numChars < 8 || numChars > 128 || isNaN(numChars)){
@@ -65,17 +59,20 @@ function generatePassword(){
     console.log("---Generating password---");
     console.log("\n");
 
+    var pwArray = []; //Empty array to house generated password
+
     //Loops through the entire joinedArray [numChars] number of times and adds a random value each time to the pwArray
     for(var i=0; i<numChars; i++){
       var rand = Math.floor(Math.random() * joinedArray.length);
       pwArray.push(joinedArray[rand]);
     }
 
+
     //PW criteria validation. Some method is used to check if there are any characters from the pwArray in each of the other arrays: specialCharArray, upperCaseArray, lowerCaseArray, numberArray
-    isSpecialCharThere = pwArray.some((val) => specialCharArray.indexOf(val) !== -1);
-    isUpperCaseThere = pwArray.some((val) => upperCaseArray.indexOf(val) !== -1);
-    isLowerCaseThere = pwArray.some((val) => lowerCaseArray.indexOf(val) !== -1);
-    isNumberThere = pwArray.some((val) => numberArray.indexOf(val) !== -1);
+    var isSpecialCharThere = pwArray.some((val) => specialCharArray.indexOf(val) !== -1);
+    var isUpperCaseThere = pwArray.some((val) => upperCaseArray.indexOf(val) !== -1);
+    var isLowerCaseThere = pwArray.some((val) => lowerCaseArray.indexOf(val) !== -1);
+    var isNumberThere = pwArray.some((val) => numberArray.indexOf(val) !== -1);
 
     //Prints out the pwArray and PW criteria validation results
     console.log("pwArray: " + pwArray);
@@ -94,6 +91,8 @@ function generatePassword(){
 
   return genPassword; //returns generated password with no commas
 }//End of GeneratePassword() function
+
+
 
 // Write password to the #password input
 function writePassword() {
