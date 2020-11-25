@@ -21,7 +21,7 @@ Link to application: https://stithac.github.io/hw3PasswordGenerator/
 * Open console log.
 * Click Generate Password button and see console log to view application/validation status.
 ## Known Bugs
-There are no known bugs. Site has been passed through the W3C HTML validation service.
+There are no known bugs. Site has been passed through the W3C HTML validation service and online JS validator.
 ## Technologies Used
 * HTML
 * CSS
